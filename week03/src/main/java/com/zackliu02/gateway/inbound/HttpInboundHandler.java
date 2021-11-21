@@ -1,8 +1,8 @@
-package io.github.kimmking.gateway.inbound;
+package com.zackliu02.gateway.inbound;
 
-import io.github.kimmking.gateway.filter.HeaderHttpRequestFilter;
-import io.github.kimmking.gateway.filter.HttpRequestFilter;
-import io.github.kimmking.gateway.outbound.httpclient4.HttpOutboundHandler;
+import com.zackliu02.gateway.outbound.okhttp.OkhttpOutboundHandler;
+import com.zackliu02.gateway.filter.HeaderHttpRequestFilter;
+import com.zackliu02.gateway.filter.HttpRequestFilter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -16,12 +16,12 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
 
     private static Logger logger = LoggerFactory.getLogger(HttpInboundHandler.class);
     private final List<String> proxyServer;
-    private HttpOutboundHandler handler;
+    private OkhttpOutboundHandler handler;
     private HttpRequestFilter filter = new HeaderHttpRequestFilter();
     
     public HttpInboundHandler(List<String> proxyServer) {
         this.proxyServer = proxyServer;
-        this.handler = new HttpOutboundHandler(this.proxyServer);
+        this.handler = new OkhttpOutboundHandler(this.proxyServer);
     }
     
     @Override
@@ -34,8 +34,9 @@ public class HttpInboundHandler extends ChannelInboundHandlerAdapter {
         try {
             //logger.info("channelRead流量接口请求开始，时间为{}", startTime);
             FullHttpRequest fullRequest = (FullHttpRequest) msg;
-//            String uri = fullRequest.uri();
-//            //logger.info("接收到的请求url为{}", uri);
+            String uri = fullRequest.uri();
+            System.out.printf("接收到的请求url为%s\n", uri);
+            //logger.info("接收到的请求url为{}", uri);
 //            if (uri.contains("/test")) {
 //                handlerTest(fullRequest, ctx);
 //            }

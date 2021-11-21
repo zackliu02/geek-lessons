@@ -1,11 +1,11 @@
-package io.github.kimmking.gateway.outbound.httpclient4;
+package com.zackliu02.gateway.outbound.httpclient4;
 
 
-import io.github.kimmking.gateway.filter.HeaderHttpResponseFilter;
-import io.github.kimmking.gateway.filter.HttpRequestFilter;
-import io.github.kimmking.gateway.filter.HttpResponseFilter;
-import io.github.kimmking.gateway.router.HttpEndpointRouter;
-import io.github.kimmking.gateway.router.RandomHttpEndpointRouter;
+import com.zackliu02.gateway.filter.HeaderHttpResponseFilter;
+import com.zackliu02.gateway.filter.HttpRequestFilter;
+import com.zackliu02.gateway.filter.HttpResponseFilter;
+import com.zackliu02.gateway.router.HttpEndpointRouter;
+import com.zackliu02.gateway.router.RandomHttpEndpointRouter;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -23,9 +23,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.*;
-import java.util.logging.Filter;
 import java.util.stream.Collectors;
 
 import static io.netty.handler.codec.http.HttpResponseStatus.NO_CONTENT;

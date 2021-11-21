@@ -1,4 +1,4 @@
-package io.github.kimmking.gateway.outbound.netty4;
+package com.zackliu02.gateway.outbound.netty4;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
