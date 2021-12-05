@@ -1,0 +1,5 @@
+school:
+  klassNum: 3
+  klassNamePrefix: class
+  studentNum: 20
+  studentNamePrefix: student
